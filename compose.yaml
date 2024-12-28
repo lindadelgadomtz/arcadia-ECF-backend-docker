@@ -8,6 +8,7 @@ services:
       MYSQL_DATABASE: sf_arcadia
       MYSQL_USER: adminArcadia
       MYSQL_PASSWORD: arcadia123$
+      DARABASE_URL: mysql://root:wyguXFroCYhESoTprQNvtMJSoPlpohJo@autorack.proxy.rlwy.net:25214/railway
     ports:
       - "3306:3306"
     volumes:
