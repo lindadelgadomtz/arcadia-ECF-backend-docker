@@ -26,7 +26,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
 # Expose PHP port
-EXPOSE 0.0.0.0:9000
+EXPOSE 9000
 
 # Start PHP-FPM
 CMD ["php-fpm"]
