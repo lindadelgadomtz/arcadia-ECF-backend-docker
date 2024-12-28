@@ -3,8 +3,17 @@ FROM php:8.1-fpm
 
 # Install required extensions
 RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libicu-dev \
     libpq-dev \
+    libzip-dev \
     && docker-php-ext-install pdo pdo_mysql
+    intl \
+    pdo \
+    pdo_mysql \
+    zip \
+    opcache
 
 # Enable other extensions (optional)
 RUN docker-php-ext-enable pdo_mysql
