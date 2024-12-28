@@ -1,5 +1,5 @@
 build:
   docker:
-    web: app/Dockerfile # Specify the path to the Dockerfile for the php service
+    web: Dockerfile # Specify the path to the Dockerfile for the php service
   config:
     APP_ENV: production # Set the application environment to production

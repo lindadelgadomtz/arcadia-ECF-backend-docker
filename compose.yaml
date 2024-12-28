@@ -19,7 +19,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: app/Dockerfile
+      dockerfile: Dockerfile
     environment:
       DATABASE_URL: "mysql://ljdbwvhgivks7gxo:dqvxz4v7n0pco32u@tj5iv8piornf713y.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/r1kou6d4xdy6q9er"
     volumes:
