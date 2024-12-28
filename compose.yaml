@@ -8,7 +8,6 @@ services:
       MYSQL_DATABASE: sf_arcadia
       MYSQL_USER: adminArcadia
       MYSQL_PASSWORD: arcadia123$
-      DATABASE_URL: mysql://root:wyguXFroCYhESoTprQNvtMJSoPlpohJo@autorack.proxy.rlwy.net:25214/railway
     ports:
       - "3306:3306"
     volumes:
@@ -19,7 +18,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: app/Dockerfile
     environment:
       DATABASE_URL: "mysql://ljdbwvhgivks7gxo:dqvxz4v7n0pco32u@tj5iv8piornf713y.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/r1kou6d4xdy6q9er"
     volumes:
@@ -29,14 +28,14 @@ services:
       - mysql
 
   nginx:
-  image: nginx:latest
-  ports:
-    - "8080:80"
-  volumes:
-    - ./app:/var/www/html
-    - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-  depends_on:
-    - php
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
 
 networks:
   symfony:
@@ -45,9 +44,3 @@ networks:
 volumes:
   mysql_data:
     driver: local
-
-app:
-    build: .
-    ports:
-      - "80:80"
-    command: php-fpm
