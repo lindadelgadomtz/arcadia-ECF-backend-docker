@@ -45,3 +45,9 @@ networks:
 volumes:
   mysql_data:
     driver: local
+
+app:
+    build: .
+    ports:
+      - "80:80"
+    command: php-fpm
