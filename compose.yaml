@@ -30,7 +30,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "0.0.0.0:8080"
+      - "0.0.0.0:80"
     volumes:
       - ./app:/var/www/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
