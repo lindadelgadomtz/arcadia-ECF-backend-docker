@@ -1,0 +1,27 @@
+services:
+  - name: arcadia-symfony-api
+    type: web
+    env: docker
+    plan: starter
+    dockerfilePath: app/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        value: "mysql://ljdbwvhgivks7gxo:dqvxz4v7n0pco32u@tj5iv8piornf713y.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/r1kou6d4xdy6q9er"
+    buildCommand: composer install
+    startCommand: php-fpm
+    healthCheckPath: /
+    disk:
+      - name: app-data
+        mountPath: /var/www/html
+
+  - name: arcadia-mysql
+    type: managed_service
+    plan: starter
+    serviceName: mysql
+    databaseName: sf_arcadia
+    user: adminArcadia
+    password: arcadia123$
+    startCommand: mysqld
+    disk:
+      - name: mysql-data
+        mountPath: /var/lib/mysql
